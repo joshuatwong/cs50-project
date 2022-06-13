@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Projects
+{% endblock %}
+
+{% block main %}
+<script type="text/javascript">
+    function confirm_click()
+    {
+        return confirm("Are you sure you want to delete this project?");
+    }    
+</script>
+
+<div class="section" style="text-align: left;">
+    <h2>Projects</h2>
+    <div class="section" style="text-align: right;">
+        <a class="btn btn-primary" href="/project/create" role="button">New Project</a>
+    </div>
+</div>
+<div class="section">
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Main Contact</th>
+                <th>Progress</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for projects in projects %}
+            <tr>
+                <td>{{ projects.title }}</td>
+                <td>{{ projects.main_contact }}</td>
+                <td>{{ projects.progress }}</td>
+                <td>{{ projects.date }}</td>
+                <td><a href="/project/edit/{{ projects.id }}">Edit</a></td>
+                <td><a title="Delete Project" onclick="return confirm_click();" href="/project/delete/{{ projects.id }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

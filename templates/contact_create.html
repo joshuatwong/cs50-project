@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Contact
+{% endblock %}
+
+{% block main %}
+
+<h3>New Contact</h3>
+
+<form action="/contact/create" method="post">
+    <div class="mb-3">
+        <label for="name" id="name">Name:</label>
+        <input autofocus class="form-control mx-auto w-auto" id="name" name="name" placeholder="Name" type="text" maxlength="50" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" id="email">Email:</label>
+        <input class="form-control mx-auto w-auto" id="email" name="email" placeholder="Email" type="email" maxlength="50">
+    </div>
+    <div class="mb-3">
+        <label for="phone" id="phone">Phone Number:</label>
+        <input class="form-control mx-auto w-auto" id="phone" name="phone" placeholder="Phone Number" type="tel" maxlength="50">
+    </div>
+    <div class="mb-3">
+        <label for="type" id="type">Contact Type:</label>
+        <select name="type" id="type">
+                <option selected="selected" value="" >None</option>
+                <option value="Model">Model</option>
+                <option value="Assistant">Assistant</option>
+                <option value="Stylist">Stylist</option>
+                <option value="Makeup Artist">Makeup Artist</option>
+                <option value="Photographer">Photographer</option>
+                <option value="Videographer">Videographer</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="agency" id="agency">Agency:</label>
+        <input class="form-control mx-auto w-auto" id="agency" name="agency" placeholder="Agency" type="text" maxlength="50">
+    </div>
+    <a class="btn btn-outline-dark" href="/contact" role="button">Cancel</a><button class="btn btn-primary" type="submit">Save</button>
+</form>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Project
+{% endblock %}
+
+{% block main %}
+
+<h3>New Project</h3>
+
+<form action="/project/create" method="post">
+    <div class="mb-3">
+        <label for="title" id="title">Title:</label>
+        <input autofocus class="form-control autofocus mx-auto w-auto" id="title" name="title" placeholder="Title" type="text" maxlength="100" required>
+    </div>
+    <div class="mb-3">
+        <label for="main_contact" id="main_contact">Main Contact:</label>
+        <input class="form-control mx-auto w-auto" id="main_contact" name="main_contact" placeholder="" type="text" maxlength="50">
+    </div>
+    <div class="mb-3">
+        <label for="date" id="date">Date:</label>
+        <input class="form-control mx-auto w-auto" id="date" name="date" type="date">
+    </div>
+    <div class="mb-3">
+        <label for="progress" id="progress">Progress:</label>
+        <select name="progress" id="progress">
+                <option selected="selected" value="Pending Contract">Pending Contract</option>
+                <option value="Planning">Planning</option>
+                <option value="Shooting">Shooting</option>
+                <option value="Editing">Editing</option>
+                <option value="Draft Approval">Draft Approval</option>
+                <option value="Publish">Published</option>
+                <option value="Completed">Completed</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="amount" id="amount">Amount:</label>
+        <input class="form-control mx-auto w-auto" id="amount" name="amount" placeholder="Amount" type="number" maxlength="50">
+    </div>
+    <div class="mb-3">
+        <label for="type" id="type">Type:</label>
+        <select name="type" id="type">
+                <option selected="selected" value="">None</option>
+                <option value="Ad">Ad</option>
+                <option value="Architecture">Architecture</option>
+                <option value="Event">Event</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Fine Art">Fine Art</option>
+                <option value="Food">Food</option>
+                <option value="Landscape">Landscape</option>
+                <option value="Portrait">Portrait</option>
+                <option value="Product">Product</option>
+                <option value="Stock">Stock</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="location" id="location">Location:</label>
+        <input class="form-control mx-auto w-auto" id="location" name="location" placeholder="" type="text" maxlength="200">
+    </div>
+    <div class="mb-3">
+        <label for="description" id="description">Description:</label>
+        <textarea class="form-control mx-auto w-auto" id="description" name="description" placeholder="" type="text" maxlength="10000" rows="4"></textarea>
+    </div>
+    <a class="btn btn-outline-dark" href="/project" role="button">Cancel</a><button class="btn btn-primary" type="submit">Save</button>
+</form>
+{% endblock %}

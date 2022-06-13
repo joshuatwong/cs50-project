@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit Contact
+{% endblock %}
+
+{% block main %}
+
+<div class="section">
+<h3>Edit Contact</h3>
+
+{% for contact in contact %}
+<form action="/contact/edit/{{contact.id}}" method="post">
+    <div class="mb-3">
+        <label for="name" id="name">Name:</label>
+        <input class="form-control mx-auto w-auto" id="name" name="name" value="{{contact.name}}" placeholder="Name" type="text" maxlength="50" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" id="email">Email:</label>
+        <input class="form-control mx-auto w-auto" id="email" name="email" value="{{contact.email}}" placeholder="Email" type="email" maxlength="50">
+    </div>
+    <div class="mb-3">
+        <label for="phone" id="phone">Phone Number:</label>
+        <input class="form-control mx-auto w-auto" id="phone" name="phone" value="{{contact.phone}}" placeholder="Phone" type="tel" maxlength="50">
+    </div>
+    <div class="mb-3">
+        <label for="type" id="type">Contact Type:</label>
+        <select name="type" id="type">
+                <option value="" {% if contact.type == "" %} selected="selected" {% endif %}>None</option>
+                <option value="Model" {% if contact.type == "Model" %} selected="selected" {% endif %}>Model</option>
+                <option value="Assistant" {% if contact.type == "Assistant" %} selected="selected" {% endif %}>Assistant</option>
+                <option value="Stylist" {% if contact.type == "Stylist" %} selected="selected" {% endif %}>Stylist</option>
+                <option value="Makeup Artist" {% if contact.type == "Makeup Artist" %} selected="selected" {% endif %}>Makeup Artist</option>
+                <option value="Photographer" {% if contact.type == "Photographer" %} selected="selected" {% endif %}>Photographer</option>
+                <option value="Videographer" {% if contact.type == "Videographer" %} selected="selected" {% endif %}>Videographer</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="agency" id="agency">Agency:</label>
+        <input class="form-control mx-auto w-auto" id="agency" name="agency" value="{{contact.agency}}" placeholder="Agency" type="text" maxlength="50">
+    </div>
+    <a class="btn btn-outline-dark" href="/contact" role="button">Cancel</a><button class="btn btn-primary" type="submit">Save</button>
+</form>
+{% endfor %}
+</div>
+{% endblock %}
